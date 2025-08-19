@@ -12,7 +12,7 @@ public class AppContext {
     private static HashMap<String, Object> context = new HashMap<>();
 
     private AppContext() {
-        // TODO
+        cargarPropiedades();
     }
 
     private static void createInstance() {
@@ -32,6 +32,28 @@ public class AppContext {
         return INSTANCE;
     }
 
+    private void cargarPropiedades(){
+        
+        try{
+            FileInputStream configFile;
+            configFile = new FileInputStream("config/properties.ini");
+            Properties appProperties = new Properties();
+            appProperties.load(configFile);
+            configFile.close();
+            if(appProperties.getProperty("propiedades.resturl") !=null){
+                this.set("resturl", appProperties.getProperty("propiedades.resturl"));
+            
+            }
+            
+        
+        } catch(IOException io){
+            
+            System.out.println("Archivo de conbfiguracino no encontrado");
+        
+        }
+        
+    }
+    
     // TODO
 
     @Override

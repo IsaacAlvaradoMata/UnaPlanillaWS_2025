@@ -1,7 +1,10 @@
 package cr.ac.una.unaplanilla.service;
 
 import cr.ac.una.unaplanilla.model.EmpleadoDto;
+import cr.ac.una.unaplanilla.util.Request;
 import cr.ac.una.unaplanilla.util.Respuesta;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,8 +16,23 @@ public class EmpleadoService {
     
     public Respuesta getUsuario(String usuario, String clave){
         try{
-            
-            return null;// TODO return new Respuesta(true,"","", "Usuario",empleadoDto);
+                Map<String,Object> parametros = new HashMap<>();
+                parametros.put("usuario", usuario);
+                parametros.put("clave", clave);
+
+                
+                Request request = new Request("EmpleadoController/usuario","/{usuario}/{clave}", parametros);
+                request.get();
+                
+                if(request.isError()){
+                
+                    return new Respuesta(false, request.getError(), "");
+                
+                }
+                
+                EmpleadoDto empleadoDto = (EmpleadoDto)request.readEntity(EmpleadoDto.class);
+        
+            return new Respuesta(true," ", " ", "Usuario", empleadoDto);
         } catch (Exception ex) {
             Logger.getLogger(EmpleadoService.class.getName()).log(Level.SEVERE, "Error obteniendo el usuario [" + usuario + "]", ex);
             return new Respuesta(false, "Error obteniendo el usuario.", "getUsuario " + ex.getMessage());
