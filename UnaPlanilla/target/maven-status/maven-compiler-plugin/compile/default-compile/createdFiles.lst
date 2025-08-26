@@ -24,5 +24,6 @@ cr/ac/una/unaplanilla/util/Respuesta.class
 cr/ac/una/unaplanilla/controller/BusquedaController.class
 cr/ac/una/unaplanilla/model/EmpleadoDto.class
 cr/ac/una/unaplanilla/util/DragResizeMod.class
+cr/ac/una/unaplanilla/service/EmpleadoService$1.class
 cr/ac/una/unaplanilla/controller/TiposPlanillaController$ButtonCell.class
 cr/ac/una/unaplanilla/controller/TiposPlanillaController.class
