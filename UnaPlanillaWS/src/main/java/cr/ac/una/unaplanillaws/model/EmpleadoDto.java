@@ -18,29 +18,34 @@ import java.util.Objects;
 public class EmpleadoDto {
 
     
-    @Schema(description = "id del empleado", example = "1")
+    @Schema(description = "Id del empleado", example="1")
     private Long id;
-    @Schema(description = "nombre del empleado", example = "Isaac")
+    @Schema(description = "Nombre del empleado", example="Isaac")
     private String nombre;
-    @Schema(description = "primer apellido del empleado", example = "Alvarado")
+    @Schema(description = "Primer apellido del empleado", example="Alvarado")
     private String primerApellido;
-    @Schema(description = "segundo apellido del empleado", example = "Mata")
+    @Schema(description = "Segundo apellido del empleado", example="Mata")
     private String segundoApellido;
-    @Schema(description = "cedula del empleado", example = "118950904")
+    @Schema(description = "Cedula del empleado", example="0100100")
     private String cedula;
-    @Schema(description = "genero del empleado", example = "M", allowableValues = "F,M")
+    @Schema(description = "Genero del empleado", example="M", allowableValues = "M,F" )
     private String genero;
-    @Schema(description = "correo del empleado", example = "josue@gmail.com")
+    @Schema(description = "Correo del empleado", example="ejemplo@gmail.com")
     private String correo;
-    @Schema(description = "indica si el empleado es administrador", example = "S", allowableValues= "S,N" )
+     @Schema(description = "Indica si es admin", example="true")
     private Boolean administrador;
+    @Schema(description = "Usuario del empleado", example="isaac")
     private String usuario;
+    @Schema(description = "Clave del empleado", example="xxxxxx")
     private String clave;
+    @Schema(description = "Fecha de ingreso del empleado", example="25/05/25")
     private LocalDate fechaIngreso;
+    @Schema(description = "Fecha de salida del empleado", example="26/05/25")
     private LocalDate fechaSalida;
+    @Schema(description = "Estado del empleado", example="A")
     private Boolean activo;
     private Long version;
-    @Schema(description = "indica si el registro fue modificado", example = "true")
+    @Schema(description = "Indica si el registro fue modificado", example="true")
     private Boolean modificado;
     private LocalDateTime fecha;
     // TODO
